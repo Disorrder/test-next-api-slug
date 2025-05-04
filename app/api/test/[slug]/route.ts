@@ -1,8 +1,10 @@
+import type { NextRequest } from "next/server";
+
 export async function GET(
-	request: Request,
-	{ params }: { params: { slug: string } },
+	request: NextRequest,
+	{ params }: { params: Promise<{ slug: string }> },
 ) {
-	const { slug } = params;
+	const { slug } = await params;
 	console.log("🚀 ~ slug:", slug);
-	return Response.json({ message: `Hello, test with slug: ${slug}!` });
+	return Response.json({ message: `Hello, ${slug}!` });
 }

@@ -1,6 +1,6 @@
 export default async function TestSlugPage({
 	params,
-}: { params: { slug: string } }) {
+}: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
 	// Fetch data from the API route
