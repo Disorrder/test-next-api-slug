@@ -6,6 +6,7 @@ export default async function TestSlugPage({
 	// Fetch data from the API route
 	const origin =
 		process.env.VERCEL_ORIGIN ?? `https://${process.env.VERCEL_URL}`;
+	console.log("🚀 ~ origin:", origin);
 	const response = await fetch(`${origin}/api/test/${slug}`);
 	const data = await response.json();
 
